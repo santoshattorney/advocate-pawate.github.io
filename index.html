@@ -1021,10 +1021,7 @@
       </div>
     </div>
 
-    <form class="contact-form" action="https://formsubmit.co/santosh.attorneydvg@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Legal Enquiry — Advocate Pawate Website">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
+    <form class="contact-form" id="contactForm" onsubmit="sendToWhatsApp(event)">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Full Name</label>
@@ -1053,8 +1050,11 @@
         <label for="message">Brief Description</label>
         <textarea id="message" name="message" placeholder="Briefly describe your legal matter..."></textarea>
       </div>
-      <button type="submit" class="btn-submit">Send Enquiry →</button>
+      <button type="submit" class="btn-submit">Send Enquiry via WhatsApp →</button>
     </form>
+    <div id="form-success" style="display:none; background:#25d366; color:#fff; padding:16px 20px; border-radius:8px; margin-top:14px; font-weight:600; font-size:0.93rem;">
+      ✅ WhatsApp is opening with your enquiry. Please press Send to submit it.
+    </div>
   </div>
 </section>
 
@@ -1068,6 +1068,35 @@
 </footer>
 
 <script>
+  function sendToWhatsApp(e) {
+    e.preventDefault();
+    const name    = document.getElementById('name').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const email   = document.getElementById('email').value.trim();
+    const matter  = document.getElementById('matter').value;
+    const message = document.getElementById('message').value.trim();
+    const labels  = { civil: 'Civil Law', criminal: 'Criminal Law', property: 'Property Law', other: 'Other' };
+
+    const text = [
+      '📋 *New Legal Enquiry — Advocate Pawate*',
+      '',
+      '👤 *Name:* ' + name,
+      '📞 *Phone:* ' + (phone || 'Not provided'),
+      '✉️ *Email:* ' + email,
+      '⚖️ *Matter:* ' + (labels[matter] || 'Not specified'),
+      '📝 *Details:* ' + (message || 'Not provided'),
+      '',
+      '_Sent via website contact form_'
+    ].join('\n');
+
+    window.open('https://wa.me/919448041500?text=' + encodeURIComponent(text), '_blank');
+
+    document.getElementById('contactForm').reset();
+    const success = document.getElementById('form-success');
+    success.style.display = 'block';
+    setTimeout(() => { success.style.display = 'none'; }, 6000);
+  }
+
   // Mobile nav toggle
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
