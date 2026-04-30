@@ -732,6 +732,134 @@
   .testi-author { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
   .testi-role { color: var(--gold); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
 
+  /* ── SCROLL PROGRESS BAR ── */
+  #scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    z-index: 9999;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── FLOATING WHATSAPP ── */
+  .float-wa {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    width: 58px; height: 58px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    z-index: 999;
+    text-decoration: none;
+    animation: waPulse 2.5s infinite;
+    transition: transform 0.2s;
+  }
+  .float-wa:hover { transform: scale(1.1); }
+  @keyframes waPulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45); }
+    50% { box-shadow: 0 4px 32px rgba(37,211,102,0.7); }
+  }
+
+  /* ── BACK TO TOP ── */
+  #back-top {
+    position: fixed;
+    bottom: 98px; right: 30px;
+    width: 40px; height: 40px;
+    background: var(--navy);
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 998;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s, transform 0.2s;
+    text-decoration: none;
+  }
+  #back-top.show { opacity: 1; pointer-events: all; }
+  #back-top:hover { transform: translateY(-3px); }
+
+  /* ── COURTS SECTION ── */
+  .courts-strip {
+    background: var(--cream);
+    padding: 36px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(12,27,51,0.07);
+    border-bottom: 1px solid rgba(12,27,51,0.07);
+  }
+  .courts-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .courts-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .court-badge {
+    background: var(--white);
+    border: 1px solid rgba(12,27,51,0.12);
+    border-left: 3px solid var(--gold);
+    padding: 9px 18px;
+    border-radius: 4px;
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  /* ── ORNAMENTAL DIVIDER ── */
+  .orn-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 8px 0;
+    margin: 0 5%;
+  }
+  .orn-divider::before, .orn-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+  }
+  .orn-icon { color: var(--gold); font-size: 0.9rem; opacity: 0.6; }
+
+  /* ── HERO TAGLINE CURSOR ── */
+  .typing-cursor {
+    display: inline-block;
+    width: 2px; height: 1.1em;
+    background: var(--gold);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 0.9s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
   /* ── RESPONSIVE UPDATES ── */
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; }
@@ -748,10 +876,23 @@
     .hero-stats { gap: 24px; }
     .appt-options { grid-template-columns: 1fr; }
     .trust-strip { gap: 16px; }
+    .float-wa { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+    #back-top { bottom: 82px; right: 20px; }
   }
 </style>
 </head>
 <body>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" href="https://wa.me/919448041500?text=Hello%20Advocate%20Pawate%2C%20I%20would%20like%20to%20book%20a%20legal%20consultation." target="_blank" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.529 5.845L.057 23.982l6.305-1.654A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.865 9.865 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/></svg>
+</a>
+
+<!-- BACK TO TOP -->
+<a id="back-top" href="#home" aria-label="Back to top">↑</a>
 
 <!-- NAV -->
 <nav>
@@ -777,7 +918,7 @@
       <!-- REPLACE: Add your father's full name below -->
       Attorney <span>Santosh Chennabasappa Pawate</span>
     </h1>
-    <p class="hero-tagline">Civil · Criminal · Property Law</p>
+    <p class="hero-tagline"><span id="typing-text"></span><span class="typing-cursor"></span></p>
     <div class="hero-bar"></div>
     <p class="hero-desc">
       Dedicated legal representation across civil disputes, criminal defence, and property matters.
@@ -791,15 +932,15 @@
     </div>
     <div class="hero-stats">
       <div>
-        <span class="stat-num">20+</span>
+        <span class="stat-num" data-target="20" data-suffix="+">0</span>
         <span class="stat-label">Years Experience</span>
       </div>
       <div>
-        <span class="stat-num">2</span>
+        <span class="stat-num" data-target="2">0</span>
         <span class="stat-label">Office Locations</span>
       </div>
       <div>
-        <span class="stat-num">3</span>
+        <span class="stat-num" data-target="3">0</span>
         <span class="stat-label">Practice Areas</span>
       </div>
     </div>
@@ -846,6 +987,19 @@
   <div class="trust-item">✅ Civil · Criminal · Property</div>
 </div>
 
+<!-- COURTS -->
+<div class="courts-strip reveal">
+  <p class="courts-label">Courts &amp; Tribunals</p>
+  <div class="courts-grid">
+    <div class="court-badge">🏛️ District Court, Davanagere</div>
+    <div class="court-badge">🏛️ City Civil &amp; Sessions Court, Bengaluru</div>
+    <div class="court-badge">⚖️ Karnataka High Court</div>
+    <div class="court-badge">📋 Consumer Disputes Redressal Forum</div>
+    <div class="court-badge">🌾 Revenue &amp; Land Tribunals</div>
+    <div class="court-badge">👨‍👩‍👧 Family Court, Karnataka</div>
+  </div>
+</div>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
@@ -878,6 +1032,8 @@
     </div>
   </div>
 </section>
+
+<div class="orn-divider"><span class="orn-icon">⚖</span></div>
 
 <!-- PRACTICE AREAS -->
 <section id="practice">
@@ -929,6 +1085,8 @@
     </div>
   </div>
 </section>
+
+<div class="orn-divider"><span class="orn-icon">⚖</span></div>
 
 <!-- APPOINTMENT -->
 <section id="appointment">
@@ -1068,6 +1226,7 @@
 </footer>
 
 <script>
+  /* ── WHATSAPP FORM ── */
   function sendToWhatsApp(e) {
     e.preventDefault();
     const name    = document.getElementById('name').value.trim();
@@ -1076,49 +1235,103 @@
     const matter  = document.getElementById('matter').value;
     const message = document.getElementById('message').value.trim();
     const labels  = { civil: 'Civil Law', criminal: 'Criminal Law', property: 'Property Law', other: 'Other' };
-
     const text = [
-      '📋 *New Legal Enquiry — Advocate Pawate*',
-      '',
+      '📋 *New Legal Enquiry — Advocate Pawate*','',
       '👤 *Name:* ' + name,
       '📞 *Phone:* ' + (phone || 'Not provided'),
       '✉️ *Email:* ' + email,
       '⚖️ *Matter:* ' + (labels[matter] || 'Not specified'),
-      '📝 *Details:* ' + (message || 'Not provided'),
-      '',
+      '📝 *Details:* ' + (message || 'Not provided'),'',
       '_Sent via website contact form_'
     ].join('\n');
-
     window.open('https://wa.me/919448041500?text=' + encodeURIComponent(text), '_blank');
-
     document.getElementById('contactForm').reset();
-    const success = document.getElementById('form-success');
-    success.style.display = 'block';
-    setTimeout(() => { success.style.display = 'none'; }, 6000);
+    const s = document.getElementById('form-success');
+    s.style.display = 'block';
+    setTimeout(() => { s.style.display = 'none'; }, 6000);
   }
 
-  // Mobile nav toggle
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-  hamburger.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.position = 'absolute';
-    navLinks.style.top = '64px';
-    navLinks.style.left = '0';
-    navLinks.style.right = '0';
-    navLinks.style.background = 'rgba(12,27,51,0.98)';
-    navLinks.style.padding = '20px 5%';
-    navLinks.style.gap = '20px';
+  /* ── SCROLL PROGRESS ── */
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    progressBar.style.width = pct + '%';
   });
 
-  // Active nav highlight on scroll
+  /* ── BACK TO TOP ── */
+  const backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('show', window.scrollY > 400);
+  });
+
+  /* ── SCROLL REVEAL ── */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('section, .practice-card, .appt-option, .court-badge, .hero-credential-card, .courts-strip, .contact-item').forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  /* ── COUNTER ANIMATION ── */
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      let current = 0;
+      const step = Math.ceil(target / 30);
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = current + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 40);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
+
+  /* ── TYPING ANIMATION ── */
+  const phrases = ['Civil · Criminal · Property Law', 'Serving Davanagere & Bengaluru', 'Over 20 Years of Legal Practice'];
+  let pi = 0, ci = 0, deleting = false;
+  const typingEl = document.getElementById('typing-text');
+  function type() {
+    const phrase = phrases[pi];
+    if (!deleting) {
+      typingEl.textContent = phrase.slice(0, ++ci);
+      if (ci === phrase.length) { deleting = true; setTimeout(type, 2200); return; }
+    } else {
+      typingEl.textContent = phrase.slice(0, --ci);
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+    }
+    setTimeout(type, deleting ? 45 : 80);
+  }
+  type();
+
+  /* ── MOBILE NAV ── */
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks  = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    if (!open) {
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '64px';
+      navLinks.style.left = '0';
+      navLinks.style.right = '0';
+      navLinks.style.background = 'rgba(12,27,51,0.98)';
+      navLinks.style.padding = '20px 5%';
+      navLinks.style.gap = '20px';
+    }
+  });
+
+  /* ── ACTIVE NAV ── */
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
     let current = '';
-    sections.forEach(s => {
-      if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id');
-    });
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.getAttribute('id'); });
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.style.color = a.getAttribute('href') === '#' + current ? '#c9a84c' : '';
     });
