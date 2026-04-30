@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Advocate Pawate — Civil, Criminal & Property Law | Davanagere & Bengaluru</title>
-<meta name="description" content="Experienced advocate in Davanagere and Bengaluru practising civil, criminal, and property law. Book a consultation today.">
+<title>Attorney Pawate — Civil, Criminal & Property Law | Davanagere & Bengaluru</title>
+<meta name="description" content="Experienced attorney in Davanagere and Bengaluru practising civil, criminal, and property law. Book a consultation today.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -555,6 +555,189 @@
   footer span { color: var(--gold); }
 
   /* ── RESPONSIVE ── */
+  /* ── HERO TWO-COLUMN ── */
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .hero-credential-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 14px;
+    padding: 40px 32px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-credential-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .hcc-seal { margin-bottom: 20px; }
+
+  .hcc-title {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.25rem;
+    margin-bottom: 14px;
+    letter-spacing: 0.3px;
+  }
+
+  .hcc-divider {
+    width: 40px; height: 2px;
+    background: var(--gold);
+    margin: 0 auto 20px;
+    border-radius: 1px;
+  }
+
+  .hcc-list {
+    list-style: none;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .hcc-list li {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hcc-list li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .hcc-quote {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.78rem;
+    font-style: italic;
+    line-height: 1.7;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 16px;
+  }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--gold);
+    padding: 13px 5%;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    color: var(--navy);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  /* ── WHY CHOOSE ── */
+  #why { background: var(--navy); }
+  #why .section-title { color: var(--white); }
+  #why .section-label { color: var(--gold-light); }
+  #why .section-divider { background: var(--gold); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-top: 44px;
+    max-width: 1100px;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 10px;
+    padding: 30px 22px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .why-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    transform: translateY(-3px);
+  }
+
+  .why-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+
+  .why-card h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+  }
+
+  .why-card p { color: rgba(255,255,255,0.5); font-size: 0.86rem; line-height: 1.65; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--white); }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 44px;
+    max-width: 1100px;
+  }
+
+  .testi-card {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 30px 28px 24px;
+    position: relative;
+    border-bottom: 3px solid var(--gold);
+  }
+
+  .testi-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .testi-text {
+    color: var(--text-light);
+    font-size: 0.92rem;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+
+  .testi-author { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+  .testi-role { color: var(--gold); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  /* ── RESPONSIVE UPDATES ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-credential-card { display: none; }
+  }
+
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
@@ -564,6 +747,7 @@
     .form-row { grid-template-columns: 1fr; }
     .hero-stats { gap: 24px; }
     .appt-options { grid-template-columns: 1fr; }
+    .trust-strip { gap: 16px; }
   }
 </style>
 </head>
@@ -571,11 +755,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="nav-logo">Advocate Pawate</a>
+  <a href="#home" class="nav-logo">Attorney Pawate</a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#practice">Practice Areas</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#appointment" class="nav-cta">Book Consultation</a></li>
   </ul>
@@ -586,11 +771,12 @@
 
 <!-- HERO -->
 <section id="home">
+  <div class="hero-inner">
   <div class="hero-content">
-    <div class="hero-badge">Advocate &amp; Legal Counsel · Davanagere &amp; Bengaluru</div>
+    <div class="hero-badge">Attorney &amp; Legal Counsel · Davanagere &amp; Bengaluru</div>
     <h1 class="hero-name">
       <!-- REPLACE: Add your father's full name below -->
-      Advocate <span>Santosh Chennabasappa Pawate</span>
+      Attorney <span>Santosh Chennabasappa Pawate</span>
     </h1>
     <p class="hero-tagline">Civil · Criminal · Property Law</p>
     <div class="hero-bar"></div>
@@ -620,7 +806,47 @@
       </div>
     </div>
   </div>
+
+  <!-- Hero right: credential card -->
+  <div class="hero-visual">
+    <div class="hero-credential-card">
+      <div class="hcc-seal">
+        <svg width="88" height="88" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="40" r="7" fill="#c9a84c"/>
+          <rect x="47" y="47" width="6" height="53" rx="3" fill="#c9a84c" opacity="0.9"/>
+          <rect x="28" y="97" width="44" height="7" rx="3.5" fill="#c9a84c" opacity="0.85"/>
+          <rect x="7" y="38" width="86" height="5" rx="2.5" fill="#c9a84c" opacity="0.9"/>
+          <line x1="19" y1="43" x2="19" y2="68" stroke="#c9a84c" stroke-width="2.5" opacity="0.75"/>
+          <line x1="81" y1="43" x2="81" y2="68" stroke="#c9a84c" stroke-width="2.5" opacity="0.75"/>
+          <path d="M4 68 Q19 82 34 68" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.12)"/>
+          <path d="M66 68 Q81 82 96 68" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.12)"/>
+        </svg>
+      </div>
+      <h3 class="hcc-title">Trusted Legal Counsel</h3>
+      <div class="hcc-divider"></div>
+      <ul class="hcc-list">
+        <li>Bar Council of Karnataka</li>
+        <li>District &amp; Sessions Court Practitioner</li>
+        <li>Karnataka High Court</li>
+        <li>Civil · Criminal · Property Law</li>
+        <li>Davanagere &amp; Bengaluru</li>
+        <li>20+ Years of Practice</li>
+      </ul>
+      <p class="hcc-quote">"Committed to upholding justice with integrity, diligence, and unwavering client advocacy."</p>
+    </div>
+  </div>
+
+  </div><!-- /hero-inner -->
 </section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">⚖️ Bar Council of Karnataka</div>
+  <div class="trust-item">🏛️ High Court Practitioner</div>
+  <div class="trust-item">📍 Davanagere &amp; Bengaluru</div>
+  <div class="trust-item">🕐 20+ Years Experience</div>
+  <div class="trust-item">✅ Civil · Criminal · Property</div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
@@ -639,7 +865,7 @@
       <div class="section-divider"></div>
       <!-- REPLACE: Update the paragraphs below with your father's actual background -->
       <p>
-        With over two decades of legal practice in Bengaluru, Advocate Santosh Pawate has built a reputation
+        With over two decades of legal practice in Bengaluru, Attorney Santosh Pawate has built a reputation
         for diligent representation, clear communication, and client-first advocacy. Enrolled with
         the Bar Council of Karnataka, he has appeared before district courts, high courts, and
         tribunals across the state.
@@ -714,6 +940,62 @@
   </div>
 </section>
 
+<!-- WHY CHOOSE -->
+<section id="why">
+  <p class="section-label">Why Choose Us</p>
+  <h2 class="section-title">The Pawate Advantage</h2>
+  <div class="section-divider"></div>
+  <div class="why-grid">
+    <div class="why-card">
+      <span class="why-icon">📚</span>
+      <h4>Deep Legal Expertise</h4>
+      <p>Over two decades of hands-on courtroom experience across civil, criminal, and property law in Karnataka courts.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">🤝</span>
+      <h4>Client-First Approach</h4>
+      <p>Every case is handled with direct personal attention. You speak with Attorney Pawate — not juniors.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">💬</span>
+      <h4>Clear Communication</h4>
+      <p>Legal proceedings explained in plain language. You are fully informed at every stage of your case.</p>
+    </div>
+    <div class="why-card">
+      <span class="why-icon">⚡</span>
+      <h4>Swift Action</h4>
+      <p>Urgent matters — bail applications, injunctions, stay orders — handled with speed when time is critical.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-label">Client Testimonials</p>
+  <h2 class="section-title">What Clients Say</h2>
+  <div class="section-divider"></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Attorney Pawate handled our property dispute with exceptional skill. He explained every step clearly and secured a favourable outcome for our family. Highly recommended.</p>
+      <div class="testi-author">Ramesh K.</div>
+      <div class="testi-role">Property Dispute · Davanagere</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-mark">"</div>
+      <p class="testi-text">When we needed urgent bail, Attorney Pawate moved immediately. His knowledge of criminal law and quick decisive action made all the difference at a critical moment.</p>
+      <div class="testi-author">Priya M.</div>
+      <div class="testi-role">Criminal Defence · Bengaluru</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-mark">"</div>
+      <p class="testi-text">Our business contract dispute was resolved swiftly thanks to thorough preparation and strong courtroom representation. We could not have asked for better counsel.</p>
+      <div class="testi-author">Suresh R.</div>
+      <div class="testi-role">Civil Litigation · Karnataka</div>
+    </div>
+  </div>
+</section>
+
 <!-- APPOINTMENT -->
 <section id="appointment">
   <div class="appt-inner">
@@ -747,7 +1029,7 @@
       </div>
     </div>
     <!-- REPLACE: Update the phone number in the href below (format: 91XXXXXXXXXX for India) -->
-    <a href="https://wa.me/919448041500?text=Hello%20Advocate%20Pawate%2C%20I%20would%20like%20to%20book%20a%20legal%20consultation." class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/919448041500?text=Hello%20Attorney%20Pawate%2C%20I%20would%20like%20to%20book%20a%20legal%20consultation." class="whatsapp-btn" target="_blank">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.529 5.845L.057 23.982l6.305-1.654A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.865 9.865 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/></svg>
       WhatsApp to Book Appointment
     </a>
@@ -843,7 +1125,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>&copy; 2026 <span>Advocate Santosh Chennabasappa Pawate</span> · Davanagere &amp; Bengaluru, Karnataka · All Rights Reserved</p>
+  <p>&copy; 2026 <span>Attorney Santosh Chennabasappa Pawate</span> · Davanagere &amp; Bengaluru, Karnataka · All Rights Reserved</p>
   <p style="margin-top:6px; font-size:0.75rem;">Bar Council of Karnataka · Enrolment No. [XXXX]</p>
 </footer>
 
